@@ -1,17 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import HeaderBlock from './components/HeaderBlock';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const AppHeader = () => (
+  <h1 className="header">Hello world!!!</h1>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const AppList = () => {
+  const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4']
+  return (
+    <ul>
+      {
+        items.map(item => <li>{item}</li>)
+      }
+    </ul>
+  )
+};
+
+const App = () => {
+  return (
+    <>
+      <AppHeader />
+      <AppList />
+      <HeaderBlock />
+    </>
+  )
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
