@@ -7,9 +7,9 @@ function App() {
   return (
     <>
       <Header title="This is title" descr="This is Description!" />
-      <Layout id="1" title="Title 1" descr="Description 1" urlBg="bg2.jpg" />
+      <Layout id="1" title="Title 1" descr="Description 1" urlBg/>
       <Layout id="2" title="Title 2" descr="Description 2" colorBg="red" />
-      <Layout id="3" title="Title 3" descr="Description 3" urlBg="bg2.jpg" />
+      <Layout id="3" title="Title 3" descr="Description 3" urlBg/>
       <Footer />
     </>
   );

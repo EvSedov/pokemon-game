@@ -1,12 +1,7 @@
 import layoutStyle from './style.module.css';
 
-const Layout = ({ id, title, descr, urlBg, colorBg }) => {
-  let styleRoot = {};
-  if (urlBg) {
-    styleRoot = { backgroundImage: `url(../assets/${urlBg})` };
-  } else if (colorBg) {
-    styleRoot = { backgroundColor: colorBg}
-  }
+const Layout = ({ id, title, descr, urlBg = false, colorBg }) => {
+  const styleRoot = urlBg ? {} : { backgroundImage: 'none', backgroundColor: colorBg }
   return (
     <section className={layoutStyle.root} id={id} style={styleRoot}>
       <div className={layoutStyle.wrapper}>
