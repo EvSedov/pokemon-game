@@ -1,10 +1,12 @@
-const Header = () => {
+import headerStyle from './style.module.css';
+
+const Header = ({ title, descr }) => {
   return (
-    <header class="root">
-      <div class="forest"></div>
-      <div class="container">
-        <h1>This is title</h1>
-        <p>This is Description!</p>
+    <header className={headerStyle.root}>
+      <div className={headerStyle.forest}></div>
+      <div className={headerStyle.container}>
+        {title && (<h1>{title}</h1>) }
+        {descr && (<p>{descr}</p>) }
       </div>
     </header>
   )

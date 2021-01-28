@@ -1,17 +1,27 @@
-const Layout = () => {
+import layoutStyle from './style.module.css';
+
+const Layout = ({ id, title, descr, urlBg, colorBg }) => {
+  let styleRoot = {};
+  if (urlBg) {
+    styleRoot = { backgroundImage: `url(../assets/${urlBg})` };
+  } else if (colorBg) {
+    styleRoot = { backgroundColor: colorBg}
+  }
   return (
-    <section class="root" id="<-- ЗДЕСЬ props.id -->">
-      <div class="wrapper">
+    <section className={layoutStyle.root} id={id} style={styleRoot}>
+      <div className={layoutStyle.wrapper}>
         <article>
-            <div class="title">
-                <h3><-- ЗДЕСЬ props.title --></h3>
-                <span class="separator"></span>
+            <div className={layoutStyle.title}>
+                {title && (<h3>{title}</h3>)}
+                <span className={layoutStyle.separator}></span>
             </div>
-            <div class="desc full">
-                <p><-- ЗДЕСЬ props.desc --></p>
+            <div className={[layoutStyle.desc, layoutStyle.full]}>
+                {descr && (<p>{descr}</p>)}
             </div>
         </article>
       </div>
     </section>
   )
 }
+
+export default Layout;
