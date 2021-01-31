@@ -1,9 +1,15 @@
 import layoutStyle from './style.module.css';
 
-const Layout = ({ id, title, descr, urlBg = false, colorBg }) => {
-  const styleRoot = urlBg ? {} : { backgroundImage: 'none', backgroundColor: colorBg }
+const Layout = ({ id, title, descr, urlBg, colorBg }) => {
+  const sectionStyle = {};
+  if (urlBg) {
+    sectionStyle.backgroundImage = `url(${urlBg})`;
+  }
+  if (colorBg) {
+    sectionStyle.backgroundColor = colorBg;
+  }
   return (
-    <section className={layoutStyle.root} id={id} style={styleRoot}>
+    <section className={layoutStyle.root} id={id} style={sectionStyle}>
       <div className={layoutStyle.wrapper}>
         <article>
             <div className={layoutStyle.title}>
