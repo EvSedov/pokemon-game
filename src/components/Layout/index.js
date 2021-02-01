@@ -1,4 +1,4 @@
-import layoutStyle from './style.module.css';
+import s from './style.module.css';
 
 const Layout = ({ id, title, urlBg, colorBg, children }) => {
   const sectionStyle = {};
@@ -9,16 +9,16 @@ const Layout = ({ id, title, urlBg, colorBg, children }) => {
     sectionStyle.backgroundColor = colorBg;
   }
   return (
-    <section className={layoutStyle.root} id={id} style={sectionStyle}>
-      <div className={layoutStyle.wrapper}>
+    <section className={s.root} id={id} style={sectionStyle}>
+      <div className={s.wrapper}>
         <article>
-            <div className={layoutStyle.title}>
+            <div className={s.title}>
                 {title && (<h3>{title}</h3>)}
-                <span className={layoutStyle.separator}></span>
+                <span className={s.separator}></span>
             </div>
-            <div className={[layoutStyle.desc, layoutStyle.full]}>
+            {children && (<div className={`${s.desc} ${s.full}`}>
                 {children}
-            </div>
+            </div>)}
         </article>
       </div>
     </section>
