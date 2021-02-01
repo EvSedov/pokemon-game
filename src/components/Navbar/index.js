@@ -4,13 +4,13 @@ import s from './style.module.css';
 
 const NavBar = ({isClassActive, onClickHamburger}) => {
   const handleClick = () => {
-    onClickHamburger();
+    onClickHamburger && onClickHamburger();
   }
   return (
     <nav id={s.navbar}>
       <div className={s.navWrapper}>
         <p className={s.brand}>
-          LOGO
+          WELLCOME POKEMONE GAME
         </p>
         <span
           className={cn(s.menuButton, {[s.active]: isClassActive})}
