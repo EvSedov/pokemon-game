@@ -2,13 +2,13 @@ import cn from 'classnames';
 
 import s from './style.module.css';
 
-const Menu = ({clickHamburger}) => {
+const Menu = ({isClassActive}) => {
   return (
     <div className={
       cn(
         s.menuContainer,
-        {[s.active]: clickHamburger},
-        {[s.deactive]: !clickHamburger}
+        {[s.active]: isClassActive},
+        {[s.deactive]: !isClassActive}
       )}>
       <div className={s.overlay} />
       <div className={s.menuItems}>
