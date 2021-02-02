@@ -10,7 +10,7 @@ const NavBar = ({isClassActive, onClickHamburger}) => {
     <nav id={s.navbar}>
       <div className={s.navWrapper}>
         <p className={s.brand}>
-          WELLCOME POKEMONE GAME
+          WELLCOME TO THE POKEMONS GAME
         </p>
         <span
           className={cn(s.menuButton, {[s.active]: isClassActive})}
