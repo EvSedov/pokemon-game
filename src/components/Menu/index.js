@@ -3,6 +3,28 @@ import cn from 'classnames';
 import s from './style.module.css';
 
 const Menu = ({isClassActive}) => {
+  const lists = [
+    {
+      id: 1,
+      descr: 'HOME',
+      href: '#welcome',
+    },
+    {
+      id: 2,
+      descr: 'GAME',
+      href: '#game',
+    },
+    {
+      id: 3,
+      descr: 'ABOUT',
+      href: '#about',
+    },
+    {
+      id: 4,
+      descr: 'CONTACT',
+      href: '#contact',
+    },
+  ];
   return (
     <div className={
       cn(
@@ -13,26 +35,17 @@ const Menu = ({isClassActive}) => {
       <div className={s.overlay} />
       <div className={s.menuItems}>
         <ul>
-            <li>
-              <a href="#welcome">
-                HOME
-              </a>
-            </li>
-            <li>
-              <a href="#game">
-                GAME
-              </a>
-            </li>
-            <li>
-              <a href="#about">
-                ABOUT
-              </a>
-            </li>
-            <li>
-              <a href="#contact">
-                CONTACT
-              </a>
-            </li>
+          {
+            lists.map((list) => {
+              return (
+                <li key={list.id}>
+                  <a href={list.href}>
+                    {list.descr}
+                  </a>
+                </li>
+              )
+            })
+          }
           </ul>
       </div>
     </div>
