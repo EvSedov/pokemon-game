@@ -1,7 +1,5 @@
-import MenuHeader from '../../components/MenuHeader';
 import Header from '../../components/Header';
 import Layout from '../../components/Layout';
-import Footer from '../../components/Footer';
 
 import Bg2JPG from '../../assets/bg2.jpg';
 import Bg3JPG from '../../assets/bg3.jpg';
@@ -14,7 +12,6 @@ const HomePage = ({onChangePage}) => {
   }
   return (
     <>
-      <MenuHeader bgActive={false}/>
       <Header 
         title="This is title" 
         descr="This is Description!"
@@ -35,7 +32,6 @@ const HomePage = ({onChangePage}) => {
         urlBg={Bg3JPG}
       >
       </Layout>
-      <Footer />
     </>
   );
 }

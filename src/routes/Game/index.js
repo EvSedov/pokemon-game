@@ -1,17 +1,18 @@
 import {useState} from 'react';
 
 import Layout from '../../components/Layout';
-import MenuHeader from '../../components/MenuHeader';
 import PokemonCard from '../../components/PokemonCard';
 
 import POKEMONS from '../../pokemons';
 
+import {useHistory} from 'react-router-dom';
+
 import s from './style.module.css';
 
 const GamePage = ({onChangePage}) => {
-  
+  const history = useHistory()
   const handleClick = () => {
-    onChangePage && onChangePage('app');
+    history.push('/');
   };
 
   const [statePokemons, setStatePokemons] = useState(POKEMONS);
@@ -28,7 +29,6 @@ const GamePage = ({onChangePage}) => {
   
   return (
     <>
-      <MenuHeader bgActive={true}/>
       <div className={s.root}>
         This is Game Page!!!
       </div>

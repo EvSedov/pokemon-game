@@ -10,7 +10,7 @@ const MenuHeader = ({ bgActive }) => {
   }
   return (
     <>
-      <Menu isOpen={isOpen}/>
+      <Menu isOpen={isOpen} onClickMenu={handleClickHamburger}/>
       <NavBar isOpen={isOpen} bgActive={bgActive} onClickHamburger={handleClickHamburger} />
     </>
   )

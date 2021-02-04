@@ -3,7 +3,7 @@ import s from './style.module.css';
 const NotFoundPage = () => {
   return (
     <>
-      <h1 className={s.title}>404 Page Not Found.</h1>
+      <h1 className={s.title}>Error 404. Page Not Found.</h1>
     </>
   )
 };
