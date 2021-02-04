@@ -2,45 +2,44 @@ import cn from 'classnames';
 
 import s from './style.module.css';
 
-const Menu = ({isClassActive}) => {
-  const lists = [
-    {
-      id: 1,
-      descr: 'HOME',
-      href: '#welcome',
-    },
-    {
-      id: 2,
-      descr: 'GAME',
-      href: '#game',
-    },
-    {
-      id: 3,
-      descr: 'ABOUT',
-      href: '#about',
-    },
-    {
-      id: 4,
-      descr: 'CONTACT',
-      href: '#contact',
-    },
-  ];
+const menuLists = [
+  {
+    id: 1,
+    title: 'HOME',
+    to: '#welcome',
+  },
+  {
+    id: 2,
+    title: 'GAME',
+    to: '#game',
+  },
+  {
+    id: 3,
+    title: 'ABOUT',
+    to: '#about',
+  },
+  {
+    id: 4,
+    title: 'CONTACT',
+    to: '#contact',
+  },
+];
+
+const Menu = ({ isOpen }) => {
   return (
-    <div className={
-      cn(
-        s.menuContainer,
-        {[s.active]: isClassActive},
-        {[s.deactive]: !isClassActive}
-      )}>
+    <div className={cn(s.menuContainer, {
+      [s.active]: isOpen === true,
+      [s.deactive]: isOpen === false
+    })}>
       <div className={s.overlay} />
       <div className={s.menuItems}>
         <ul>
           {
-            lists.map((list) => {
+            menuLists.map(({ title, to, id }) => {
               return (
-                <li key={list.id}>
-                  <a href={list.href}>
-                    {list.descr}
+                <li key={id}>
+                  <a href={to}>
+                    {title}
                   </a>
                 </li>
               )

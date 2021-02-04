@@ -1,3 +1,5 @@
+import MenuHeader from '../../components/MenuHeader';
+
 import s from './style.module.css';
 
 const GamePage = ({onChangePage}) => {
@@ -7,7 +9,8 @@ const GamePage = ({onChangePage}) => {
 
   return (
     <>
-      <div>
+      <MenuHeader bgActive={true}/>
+      <div className={s.root}>
         This is Game Page!!!
       </div>
       <button className={s.button} onClick={handleClick}>

@@ -1,3 +1,7 @@
+.root {
+  padding-top: 5rem;
+}
+
 .button {
   color: #fff;
   background: rgb(212,75,56);

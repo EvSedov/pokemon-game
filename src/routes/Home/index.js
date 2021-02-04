@@ -12,12 +12,11 @@ import s from './style.module.css';
 
 const HomePage = ({onChangePage}) => {
   const handleClickButton = (page) => {
-    console.log('<HomePage />');
     onChangePage && onChangePage(page);
   }
   return (
     <>
-      <MenuHeader />
+      <MenuHeader bgActive={false}/>
       <Header 
         title="This is title" 
         descr="This is Description!"
