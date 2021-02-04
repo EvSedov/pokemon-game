@@ -6,16 +6,12 @@ import Bg3JPG from '../../assets/bg3.jpg';
 
 // import s from './style.module.css';
 
-const HomePage = ({onChangePage}) => {
-  const handleClickButton = (page) => {
-    onChangePage && onChangePage(page);
-  }
+const HomePage = () => {
   return (
     <>
       <Header 
         title="This is title" 
         descr="This is Description!"
-        onClickButton={handleClickButton}
       />
       <Layout 
         id="1" 

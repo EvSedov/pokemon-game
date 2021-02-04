@@ -9,21 +9,20 @@ import {useHistory} from 'react-router-dom';
 
 import s from './style.module.css';
 
-const GamePage = ({onChangePage}) => {
+const GamePage = () => {
   const history = useHistory()
   const handleClick = () => {
     history.push('/');
   };
 
-  const [statePokemons, setStatePokemons] = useState(POKEMONS);
+  const [pokemons, setStatePokemons] = useState(POKEMONS);
 
   const hendleClickCard = (id) => {
-    setStatePokemons((prevState) => prevState.map((pokemon) => {
-      const newPokemon = {...pokemon};
-      if (newPokemon.id === id) {
-        newPokemon.active = !newPokemon.active;
+    setStatePokemons(() => pokemons.map((pokemon) => {
+      if (pokemon.id === id) {
+        pokemon.active = !pokemon.active;
       }
-      return newPokemon;
+      return pokemon;
     }));
   };
   
@@ -42,7 +41,7 @@ const GamePage = ({onChangePage}) => {
       >
         <div className={s.flex}>
           {
-            statePokemons.map(
+            pokemons.map(
               (pokemon) => <PokemonCard
                 key = {pokemon.id}
                 name = {pokemon.name}
