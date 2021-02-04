@@ -19,10 +19,11 @@ const GamePage = () => {
 
   const hendleClickCard = (id) => {
     setStatePokemons(() => pokemons.map((pokemon) => {
-      if (pokemon.id === id) {
-        pokemon.active = !pokemon.active;
+      const newPokemon = {...pokemon}
+      if (newPokemon.id === id) {
+        newPokemon.active = !newPokemon.active;
       }
-      return pokemon;
+      return newPokemon;
     }));
   };
   
