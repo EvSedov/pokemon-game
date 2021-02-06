@@ -18,13 +18,16 @@ const GamePage = () => {
   const [pokemons, setStatePokemons] = useState(POKEMONS);
 
   const hendleClickCard = (id) => {
-    setStatePokemons(() => pokemons.map((pokemon) => {
-      const newPokemon = {...pokemon}
-      if (newPokemon.id === id) {
-        newPokemon.active = !newPokemon.active;
-      }
-      return newPokemon;
-    }));
+    setStatePokemons(prevState => {
+      return Object.entries(prevState).reduce((acc, item) => {
+        const pokemon = {...item[1]};
+        if (pokemon.id === id) {
+          pokemon.active = true;
+        };
+        acc[item[0]] = pokemon;
+        return acc;
+      }, {});
+    });
   };
   
   return (
