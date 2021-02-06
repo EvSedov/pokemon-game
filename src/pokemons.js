@@ -133,4 +133,32 @@ const POKEMONS = [
   }
 ];
 
+export const onePokemon = {
+  "abilities": [
+    "keen-eye",
+    "tangled-feet",
+    "big-pecks"
+  ],
+  "stats": {
+    "hp": 63,
+    "attack": 60,
+    "defense": 55,
+    "special-attack": 50,
+    "special-defense": 50,
+    "speed": 71
+  },
+  "type": "flying",
+  "img": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png",
+  "name": "pidgeotto",
+  "base_experience": 122,
+  "height": 11,
+  "id": 17,
+  "values": {
+    "top": "A",
+    "right": 2,
+    "bottom": 7,
+    "left": 5
+  }
+};
+
 export default POKEMONS;

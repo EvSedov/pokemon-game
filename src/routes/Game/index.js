@@ -5,13 +5,21 @@ import PokemonCard from '../../components/PokemonCard';
 
 import db from '../../service/firebase';
 
+import { onePokemon as data } from '../../pokemons';
+
 import cn from 'classnames';
 
 import s from './style.module.css';
 
+const random = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 const GamePage = () => {
   const handleClick = () => {
-    
+    const newKey = db.ref().child('pokemons').push().key;
+    const newID = data.id + random(1, 1000);
+    db.ref('pokemons/' + newKey).set({...data, id: newID});
   };
 
   const [pokemons, setStatePokemons] = useState({});
