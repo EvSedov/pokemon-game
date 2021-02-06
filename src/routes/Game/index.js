@@ -1,11 +1,11 @@
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Layout from '../../components/Layout';
 import PokemonCard from '../../components/PokemonCard';
 
-import POKEMONS from '../../pokemons';
-
-import {useHistory} from 'react-router-dom';
+// import POKEMONS from '../../pokemons';
+import db from '../../service/firebase';
 
 import s from './style.module.css';
 
@@ -15,14 +15,20 @@ const GamePage = () => {
     history.push('/');
   };
 
-  const [pokemons, setStatePokemons] = useState(POKEMONS);
+  const [pokemons, setStatePokemons] = useState({});
+
+  useEffect(() => {
+    db.ref('pokemons').once('value', (snapshot) => {
+      setStatePokemons(snapshot.val());
+    });
+  }, []);
 
   const hendleClickCard = (id) => {
     setStatePokemons(prevState => {
       return Object.entries(prevState).reduce((acc, item) => {
         const pokemon = {...item[1]};
         if (pokemon.id === id) {
-          pokemon.active = true;
+          pokemon.active = !pokemon.active;
         };
         acc[item[0]] = pokemon;
         return acc;
@@ -45,15 +51,15 @@ const GamePage = () => {
       >
         <div className={s.flex}>
           {
-            pokemons.map(
-              (pokemon) => <PokemonCard
-                key = {pokemon.id}
-                name = {pokemon.name}
-                type = {pokemon.type}
-                img = {pokemon.img}
-                id = {pokemon.id}
-                values = {pokemon.values}
-                isActive={pokemon.active}
+            Object.entries(pokemons).map(
+              ([key, {id, name, type, img, values, active}]) => <PokemonCard
+                key = {key}
+                name = {name}
+                type = {type}
+                img = {img}
+                id = {id}
+                values = {values}
+                isActive={active}
                 onClickCard={hendleClickCard}
               />
             )
