@@ -26,8 +26,8 @@ const GamePage = () => {
     Object.entries(pokemons).forEach((item) => {
       const pokemon = {...item[1]};
       if (pokemon.id === id) {
-        const key = item[0];
-        db.ref('pokemons/'+ key).set({
+        const objID = item[0];
+        db.ref('pokemons/'+ objID).set({
 	        ...pokemon, active: !pokemon.active 
         });
       };
@@ -38,7 +38,7 @@ const GamePage = () => {
     <>
       <div className={cn(s.flex, s.column)}>
         <div className={s.root}>
-          This is Game Page!!!
+          <h1>This is Game Page!!!</h1>
         </div>
         <button className={s.button} onClick={handleClick}>
           Add new Card
