@@ -15,3 +15,9 @@
 .column {
   flex-direction: column;
 }
+
+.card {
+  min-height: 300px;
+  width: 200px;
+  margin: 15px;
+}

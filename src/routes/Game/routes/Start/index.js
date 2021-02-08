@@ -71,7 +71,7 @@ const StartPage = () => {
         <div className={s.flex}>
           {
             Object.entries(pokemons).map(
-              ([key, {id, name, type, img, values, active}]) => <PokemonCard
+              ([key, {id, name, type, img, values, active }]) => <PokemonCard
                 key = {key}
                 name = {name}
                 type = {type}
@@ -80,6 +80,8 @@ const StartPage = () => {
                 values = {values}
                 isActive={active}
                 onClickCard={hendleClickCard}
+                minimize
+                className={s.card}
               />
             )
           }
