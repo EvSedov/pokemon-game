@@ -1,0 +1,17 @@
+.button {
+  color: #fff;
+  background: rgb(212,75,56);
+  padding: .7em 1.5em;
+  outline: none;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex-direction: column;
+}
