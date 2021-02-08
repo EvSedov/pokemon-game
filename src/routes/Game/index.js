@@ -30,7 +30,7 @@ const GamePage = () => {
     const newPokemon = {...data, id: newID}
     db.ref('pokemons/' + newKey)
       .set(newPokemon)
-      .then(() => setStatePokemons((prevState) => ({ ...prevState, newPokemon})));
+      .then(() => setStatePokemons((prevState) => ({ ...prevState, [newKey]: newPokemon})));
   };
 
   const hendleClickCard = (id) => {
