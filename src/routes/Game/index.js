@@ -16,28 +16,39 @@ const random = (min, max) => {
 }
 
 const GamePage = () => {
-  const handleClick = () => {
-    const newKey = db.ref().child('pokemons').push().key;
-    const newID = data.id + random(1, 1000);
-    db.ref('pokemons/' + newKey).set({...data, id: newID});
-  };
-
   const [pokemons, setStatePokemons] = useState({});
 
   useEffect(() => {
     db.ref('pokemons').once('value', (snapshot) => {
       setStatePokemons(snapshot.val());
     });
-  }, [pokemons]);
+  }, []);
+
+  const handleClick = () => {
+    const newKey = db.ref().child('pokemons').push().key;
+    const newID = data.id + random(1, 1000);
+    const newPokemon = {...data, id: newID}
+    db.ref('pokemons/' + newKey)
+      .set(newPokemon)
+      .then(() => setStatePokemons((prevState) => ({ ...prevState, newPokemon})));
+  };
 
   const hendleClickCard = (id) => {
     Object.entries(pokemons).forEach((item) => {
       const pokemon = {...item[1]};
       if (pokemon.id === id) {
         const objID = item[0];
-        db.ref('pokemons/'+ objID).set({
+        const newPokemon = {
 	        ...pokemon, active: !pokemon.active 
-        });
+        }
+        db.ref('pokemons/'+ objID)
+          .set(newPokemon)
+          .then(() => setStatePokemons((prevState) => (
+            {
+              ...prevState,
+              [objID]: newPokemon
+            }
+          )));
       };
     });
   };
