@@ -1,0 +1,22 @@
+.button {
+  color: #fff;
+  background: rgb(212,75,56);
+  padding: .7em 1.5em;
+  outline: none;
+}
+
+.flex {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 40px;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.card {
+  width: 100%;
+  height: 380px;
+ cursor: pointer;
+}
