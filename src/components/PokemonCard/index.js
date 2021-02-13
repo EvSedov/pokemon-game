@@ -14,14 +14,12 @@ const PokemonCard = ({
   minimize,
   className
 }) => {
-  const handleClick = () => onClickCard(id);
+  const handleClick = () => onClickCard();
   return (
-    <div className={cn(
-      className,
-      s.pokemonCard,
-      {[s.active]: isActive},
-      {[s.selected]: isSelected}
-      )}
+    <div className={cn(className, s.pokemonCard, {
+      [s.active]: isActive,
+      [s.selected]: isSelected
+      })}
       onClick={handleClick}
     >
       <div className={s.cardFront}>
