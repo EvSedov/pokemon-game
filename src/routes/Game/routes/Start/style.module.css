@@ -11,10 +11,6 @@
   grid-gap: 40px;
 }
 
-.column {
-  flex-direction: column;
-}
-
 .card {
   width: 100%;
   height: 380px;

@@ -7,8 +7,6 @@ import {PokemonContext} from '../../../../context/pokemonContext';
 import Layout from '../../../../components/Layout';
 import PokemonCard from '../../../../components/PokemonCard';
 
-import cn from 'classnames';
-
 import s from './style.module.css';
 
 const StartPage = () => {
@@ -50,14 +48,14 @@ const StartPage = () => {
 
   return (
     <>
-      <div className={cn(s.flex, s.column)}>
-        <div className={s.root}>
-          <h1>This is Game Page!!!</h1>
-        </div>
+      <div className={s.root}>
+        <h1>This is Game Page!!!</h1>
+      </div>
+      <div className={s.flex}>
         <button 
           className={s.button} 
           onClick={handleClick}
-          disable={Object.keys(pokemonContext.selectedPokemons).length < 4}
+          disabled={Object.keys(pokemonContext.selectedPokemons).length < 5}
         >
           Start Game
         </button>
