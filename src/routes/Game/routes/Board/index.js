@@ -26,11 +26,11 @@ const counterWin = (board, player1, player2) => {
 }
 
 const BoardPage = () => {
-  const { selectedPokemons } = useContext(PokemonContext);
+  let pokemonContext = useContext(PokemonContext);
 
   const [board, setBoard] = useState([]);
   const [player1, setPlayer1] = useState(() => {
-    return Object.values(selectedPokemons).map((item) => ({
+    return Object.values(pokemonContext.selectedPokemons).map((item) => ({
       ...item,
       possession: 'blue'
     }))
@@ -49,17 +49,20 @@ const BoardPage = () => {
 
       const player2Response = await fetch('https://reactmarathon-api.netlify.app/api/create-player');
       const player2Request = await player2Response.json();
+
+      pokemonContext.addOpponentPokemons(player2Request.data);
+
       setPlayer2(() => {
-    return player2Request.data.map((item) => ({
-      ...item,
-      possession: 'red'
-    }))
-  });
+        return player2Request.data.map((item) => ({
+          ...item,
+          possession: 'red'
+        }))
+      });
     };
     fetchData();
   }, []);
 
-  if (Object.keys(selectedPokemons).length === 0) {
+  if (Object.keys(pokemonContext.selectedPokemons).length === 0) {
     history.replace('/game');
   }
 
@@ -109,7 +112,10 @@ const BoardPage = () => {
       } else {
         alert('DRAW')
       }
+
+      history.replace('/game/finish');
     }
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [steps]);
 
