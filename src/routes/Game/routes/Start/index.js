@@ -48,10 +48,10 @@ const StartPage = () => {
 
   return (
     <>
-      <div className={s.root}>
-        <h1>This is Game Page!!!</h1>
-      </div>
       <div className={s.flex}>
+        <div className={s.root}>
+          <h1>This is Game Page!!!</h1>
+        </div>
         <button 
           className={s.button} 
           onClick={handleClick}
@@ -65,7 +65,7 @@ const StartPage = () => {
         title="Cards" 
         colorBg="red"
       >
-        <div className={s.flex}>
+        <div className={s.grid}>
           {
             Object.entries(pokemons).map(
               ([key, {id, name, type, img, values, selected }]) => <PokemonCard
