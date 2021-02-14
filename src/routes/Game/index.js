@@ -42,6 +42,10 @@ const GamePage = () => {
     setOpponentPokemon([]);
   }
 
+  const [winner, setWinner] = useState(false);
+
+  const hendleWin = (bool) => setWinner(bool);
+
     return (
       <PokemonContext.Provider value={{
         selectedPokemons,
@@ -49,6 +53,8 @@ const GamePage = () => {
         opponentPokemon,
         addOpponentPokemons: hendleOpponentPokemon,
         clearContext: hendleClearContext,
+        winner,
+        win: hendleWin
       }}>
         <Switch>
           <Route path={`${match.path}/`} exact component={StartPage} />
