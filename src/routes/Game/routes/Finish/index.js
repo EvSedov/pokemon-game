@@ -12,7 +12,7 @@ const FinfshPage = () => {
   const history = useHistory()
 
   const handleClick = () => {
-    pokemonContext.cleareContext();
+    pokemonContext.clearContext();
     history.push('/game');
   };
   return (
