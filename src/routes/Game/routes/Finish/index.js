@@ -8,9 +8,11 @@ import PokemonCard from '../../../../components/PokemonCard';
 import s from './style.module.css';
 
 const FinfshPage = () => {
-  const { selectedPokemons, opponentPokemon } = useContext(PokemonContext);
+  const pokemonContext = useContext(PokemonContext);
   const history = useHistory()
+
   const handleClick = () => {
+    pokemonContext.cleareContext();
     history.push('/game');
   };
   return (
@@ -18,7 +20,7 @@ const FinfshPage = () => {
       <div className={s.root}>
         <div className={s.playerOne}>
           {
-            Object.values(selectedPokemons).map(({name, type, img, id, values}) => (
+            Object.values(pokemonContext.selectedPokemons).map(({name, type, img, id, values}) => (
               <PokemonCard
                 className={s.cardBoard}
                 name = {name}
@@ -39,7 +41,7 @@ const FinfshPage = () => {
         </div>
         <div className={s.playerTwo}>
           {
-            opponentPokemon.map(({name, type, img, id, values}) => (
+            pokemonContext.opponentPokemon.map(({name, type, img, id, values}) => (
               <PokemonCard
                 className={s.cardBoard}
                 name = {name}

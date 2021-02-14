@@ -37,12 +37,18 @@ const GamePage = () => {
     })
   }
 
+  const hendleCleareContext = () => {
+    setPokemons({});
+    setOpponentPokemon([]);
+  }
+
     return (
       <PokemonContext.Provider value={{
         selectedPokemons,
         onSelectedPokemon: hendleSelectedPokemon,
         opponentPokemon,
         addOpponentPokemons: hendleOpponentPokemon,
+        cleareContext: hendleCleareContext,
       }}>
         <Switch>
           <Route path={`${match.path}/`} exact component={StartPage} />

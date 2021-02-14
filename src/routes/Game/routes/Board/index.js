@@ -60,6 +60,7 @@ const BoardPage = () => {
       });
     };
     fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (Object.keys(pokemonContext.selectedPokemons).length === 0) {
