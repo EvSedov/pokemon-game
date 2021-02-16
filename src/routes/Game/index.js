@@ -24,12 +24,37 @@ const GamePage = () => {
         [key]: pokemon,
       }
     })
-    
   }
+
+  const [opponentPokemon, setOpponentPokemon] = useState([]);
+  
+  const hendleOpponentPokemon = (pokemons) => {
+    setOpponentPokemon((prevState) => {
+      return [
+        ...prevState,
+        ...pokemons,
+      ]
+    })
+  }
+
+  const hendleClearContext = () => {
+    setPokemons({});
+    setOpponentPokemon([]);
+  }
+
+  const [winner, setWinner] = useState(false);
+
+  const hendleWin = (bool) => setWinner(bool);
+
     return (
       <PokemonContext.Provider value={{
         selectedPokemons,
-        onSelectedPokemon: hendleSelectedPokemon
+        onSelectedPokemon: hendleSelectedPokemon,
+        opponentPokemon,
+        addOpponentPokemons: hendleOpponentPokemon,
+        clearContext: hendleClearContext,
+        winner,
+        win: hendleWin
       }}>
         <Switch>
           <Route path={`${match.path}/`} exact component={StartPage} />
