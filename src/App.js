@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLocation, Route, Switch, Redirect } from 'react-router-dom';
 
 import HomePage from './routes/Home';

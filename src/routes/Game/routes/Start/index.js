@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {useHistory, useRouteMatch} from 'react-router-dom';
 
 import {FireBaseContext} from '../../../../context/firebaseContext';
