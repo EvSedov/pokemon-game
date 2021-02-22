@@ -1,29 +1,30 @@
 import React, { useState, useEffect, useContext } from 'react';
 import {useHistory, useRouteMatch} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 
-import {FireBaseContext} from '../../../../context/firebaseContext';
 import {PokemonContext} from '../../../../context/pokemonContext';
 
 import Layout from '../../../../components/Layout';
 import PokemonCard from '../../../../components/PokemonCard';
 
 import s from './style.module.css';
+import { selectPokemonsData, getPokemonsAsync } from '../../../../store/pokemon';
 
 const StartPage = () => {
-  const firebase = useContext(FireBaseContext);
   const pokemonContext = useContext(PokemonContext);
+  const pokemonRedux = useSelector(selectPokemonsData);
+  const dispatch = useDispatch();
   
   const [pokemons, setPokemons] = useState({});
   
   useEffect(() => {
-    firebase.getPokemonSoket((pokemons) => {
-      setPokemons(pokemons);
-    });
-
-    return () => firebase.offPokemonSoket();
+    dispatch(getPokemonsAsync());
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
+  useEffect(() => {
+    setPokemons(pokemonRedux);
+  }, [pokemonRedux]);
   
   const hendleChangeSelected = (key) => {
     const pokemon = {...pokemons[key]};
