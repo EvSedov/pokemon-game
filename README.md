@@ -2,4 +2,4 @@
 
 ## Description:
 
-## Demo: [Pokemon Game](https://evs-pokemon-game.netlify.app/)
+## Demo: Если хотите поиграть, переходите на [Pokemon Game](https://evs-pokemon-game.netlify.app/)
