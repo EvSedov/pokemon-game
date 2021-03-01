@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouteMatch, Route, Switch } from 'react-router-dom';
 
 import {PokemonContext} from '../../context/pokemonContext';
