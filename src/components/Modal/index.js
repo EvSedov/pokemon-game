@@ -1,10 +1,15 @@
-import React, {useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 
 import cn from 'classnames';
 import s from './style.module.css';
 
 const Modal = ({ isOpen, title, children, onCloseModal }) => {
-  const modalEl = useRef()
+  const modalEl = useRef();
+
+  useEffect(() => {
+    document.querySelector('body').style.overflow = isOpen ? 'hidden' : null;
+  }, [isOpen])
+
   const handleCloseModal = () => {
     onCloseModal && onCloseModal(false);
   };
