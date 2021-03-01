@@ -38,7 +38,7 @@
 .menuButton span::before,
 .menuButton span::after {
   position: absolute;
-  content: '';
+  content: "";
   width: 30px;
   height: 3px;
   background: #fafafa;
@@ -49,7 +49,7 @@
   position: relative;
   display: block;
   top: 50%;
-  transform: translate(0,-50%);
+  transform: translate(0, -50%);
 }
 
 .menuButton span::before {
@@ -66,16 +66,16 @@
   background: #f300b4;
 }
 
-.menuButton.active > span  {
+.menuButton.active > span {
   background: transparent;
 }
 
-.menuButton.active > span::before  {
+.menuButton.active > span::before {
   transform: rotate(-225deg);
   top: 0px;
 }
 
-.menuButton.active > span::after  {
+.menuButton.active > span::after {
   transform: rotate(225deg);
   top: 0px;
 }
@@ -84,4 +84,28 @@
   #navbar {
     background: #181d23aa;
   }
+}
+
+.loginAndMenu {
+  display: flex;
+}
+
+.loginWrap {
+  width: 22px;
+  height: 22px;
+  margin-right: 12px;
+}
+
+.loginWrap svg {
+  width: 100%;
+  height: 100%;
+}
+
+.loginWrap svg g {
+  fill: white;
+  transition: fill ease-in-out 0.25s;
+}
+
+.loginWrap:hover svg g {
+  fill: #f300b4;
 }
