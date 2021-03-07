@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import Button from '../Button';
 
-import s from './style.module.css';
+import Input from '../Input';
 
 const LoginForm = ({onSubmit}) => {
-  const [email, setEmail] = useState('you-email@addr.ru');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
@@ -12,42 +13,28 @@ const LoginForm = ({onSubmit}) => {
       email,
       password
     });
-    setEmail('you-email@addr.ru');
+    setEmail('');
     setPassword('')
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <div className={s.root} >
-          <input 
-            type="text" 
-            className={s.input} 
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            required
-          />
-          <span className={s.highlight}></span>
-          <span className={s.bar}></span>
-          <label className={s.label}>Email</label>
-        </div>
-        <div className={s.root}>
-          <input 
-            type="text" 
-            className={s.input}
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            required
-          />
-          <span className={s.highlight}></span>
-          <span className={s.bar}></span>
-          <label className={s.label}>Password</label>
-        </div>
-        <button>
-          Login
-        </button>
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <Input
+        value={email}
+        label="Email"
+        name="email"
+        onChange={(e) => setEmail(e.target.value)}
+        required={true}
+      />
+      <Input
+        value={password}
+        label="Password"
+        name="password"
+        onChange={(e) => setPassword(e.target.value)}
+        required={true}
+      />
+      <Button text="Login"/>
+    </form>
   );
 };
 

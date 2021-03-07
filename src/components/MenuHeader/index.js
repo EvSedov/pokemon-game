@@ -6,7 +6,7 @@ import NavBar from '../Navbar';
 
 const MenuHeader = ({ bgActive }) => {
   const [isOpen, setOpen] = useState(null);
-  const [isOpenModal, setOpenModal] = useState(true);
+  const [isOpenModal, setOpenModal] = useState(false);
 
   const handleClickHamburger = () => {
     setOpen((prevState) => !prevState);
@@ -16,8 +16,18 @@ const MenuHeader = ({ bgActive }) => {
     setOpenModal((prevState) => !prevState);
   }
 
-  const handleSubmitLoginForm = (value) => {
-    console.log("🚀 ~ value", value);
+  const handleSubmitLoginForm = async ({email, password}) => {
+    const requestOptions = {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        password,
+        returnSecureToken: true
+      })
+
+    }
+    const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCTmvGQGw3UDu7vmvYOfH9TB2uirx4iTKE', requestOptions).then(res => res.json())
+    console.log("🚀 ~ response", response)
   }
 
   return (
@@ -33,7 +43,7 @@ const MenuHeader = ({ bgActive }) => {
         onClickLogin={handleClickLogin}
       />
       <Modal
-        title="Title Modal!"
+        title="Log in..."
         isOpen={isOpenModal}
         onCloseModal={handleClickLogin}
       >
