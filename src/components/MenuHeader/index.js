@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import {NotificationManager} from 'react-notifications';
+
 import LoginForm from '../LoginForm';
 import Menu from '../Menu';
 import Modal from '../Modal';
@@ -27,7 +29,12 @@ const MenuHeader = ({ bgActive }) => {
 
     }
     const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCTmvGQGw3UDu7vmvYOfH9TB2uirx4iTKE', requestOptions).then(res => res.json())
-    console.log("🚀 ~ response", response)
+    console.log("🚀 ~ response", response);
+    if (response.hasOwnProperty('error')) {
+      NotificationManager.error(response.error.message, 'Wrong!');
+    } else {
+      NotificationManager.success('Success!!!');
+    }
   }
 
   return (

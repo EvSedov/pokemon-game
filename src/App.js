@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLocation, Route, Switch, Redirect } from 'react-router-dom';
+import {NotificationContainer} from 'react-notifications';
+
 
 import HomePage from './routes/Home';
 import GamePage from './routes/Game';
@@ -15,6 +17,7 @@ import FirebaseClass from './service/firebase';
 import cn from 'classnames';
 
 import s from './App.module.css';
+import 'react-notifications/lib/notifications.css';
 
 const App = () => {
   const location = useLocation();
@@ -45,6 +48,7 @@ const App = () => {
           </>
         </Route>
       </Switch>
+      <NotificationContainer />
     </FireBaseContext.Provider>
   )
 }
