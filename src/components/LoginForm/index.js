@@ -6,15 +6,21 @@ import Input from '../Input';
 const LoginForm = ({onSubmit}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLogin, setLogin] = useState(true);
+
+  const hendleLogin = () => {
+    setLogin(!isLogin);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit && onSubmit({
+      type: isLogin ? 'login' : 'signup',
       email,
       password
     });
     setEmail('');
-    setPassword('')
+    setPassword('');
   };
 
   return (
@@ -33,7 +39,10 @@ const LoginForm = ({onSubmit}) => {
         onChange={(e) => setPassword(e.target.value)}
         required={true}
       />
-      <Button text="Login"/>
+      <Button
+        onClickBtn={() => hendleLogin()}
+        isLogin={isLogin}
+      />
     </form>
   );
 };

@@ -1,12 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import s from './style.module.css';
 
-const Button = ({text}) => {
+const Button = ({isLogin, onClickBtn}) => {
+  const hendleClick = () => {
+    onClickBtn();
+  }
+
   return (
-    <button className={s.button}>
-      {text}
-    </button>
+    <div className={s.flex}>
+      <button className={s.button}>
+       { isLogin ? 'Login' : 'Signup' }
+      </button>
+      <div 
+        className={s.link}
+        onClick={() => hendleClick()}
+      >
+        { isLogin ? 'Register' : 'Login' }
+      </div>
+    </div>
   );
 };
 
