@@ -11,7 +11,7 @@ const Modal = ({ isOpen, title, children, onCloseModal }) => {
   }, [isOpen])
 
   const handleCloseModal = () => {
-    onCloseModal && onCloseModal(false);
+    onCloseModal && onCloseModal(true);
   };
 
   const handleClickRoot = (event) => {
